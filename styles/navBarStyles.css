@@ -1,0 +1,110 @@
+#notifications {
+    color: white;
+    text-align: center;
+    background-color: inherit;
+    border: none;
+    font-size: 15px;
+}
+
+#navMenu {
+    background-color: #02315d;
+    display: inline-block;
+    color: white;
+}
+
+#title {
+    text-align: center;
+    font-size: 30px;
+    text-decoration: none;
+    color: white;
+}
+
+#title:hover {
+    text-decoration: none;
+}
+
+#menuDiv {
+    padding-top: 10px;
+    float: right;
+    text-align: center;
+    font-size: 15px;
+
+}
+
+.menuItem {
+    margin-right: 10px;
+    font-size: 15px;
+}
+
+#userPhoto {
+    width: 30px;
+    height: 30px;
+}
+
+#dropDown {
+    display: none;
+    position: absolute;
+    top: 33px;
+    left: 1600px;
+    z-index: 999;
+    text-align: left;
+    border: solid 1px black;
+    background-color: white;
+}
+
+#dropDown ul {
+    list-style: none;
+}
+
+#dropDown li {
+    color: black;
+}
+
+#dropDown button {
+    border: none;
+    background: none;
+}
+
+
+#dropDownNotifications {
+    display: none;
+    position: absolute;
+    top: 33px;
+    left: 1350px;
+    z-index: 999;
+    text-align: left;
+    border: solid 1px black;
+    background-color: white;
+
+}
+
+#dropDownNotifications ul {
+    padding: 10px;
+    margin-top: 5px;
+    list-style: none;
+}
+
+#dropDownNotifications li {
+    color: black;
+    text-align: center;
+}
+
+#dropDownNotifications img {
+    width: 30px;
+    height: 30px;
+}
+
+.message {
+    display: flex;
+    justify-content: center;
+}
+.message span,textarea,img{
+    margin: 5px;
+}
+.message span{
+    margin-top: 10px;
+    width: 30px;
+}
+.message textarea{
+    margin-left: 7px;
+}

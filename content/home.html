@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CRM</title>
+    <link rel="manifest" href="../manifest.json">
+
+    <link rel="stylesheet" href="/styles/animationStyles.css">
+    <link rel="stylesheet" href="/styles/navBarStyles.css">
+    <link rel="stylesheet" href="/styles/generalStyles.css">
+    <link rel="stylesheet" href="/styles/studentsPageStyles.css">
+    <link rel="stylesheet" href="/styles/navigationListStyles.css">
+    <link rel="stylesheet" href="/styles/dialogs.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+
+</head>
+<body>
+
+<nav>
+    <div class="container-fluid" id="navMenu">
+
+        <a id="title" href="home.html">CMS</a>
+
+        <div id="menuDiv">
+
+            <button id="notifications" class="menuItem">
+                <span class="glyphicon glyphicon-bell" style="margin-top:3px;">
+                    <div class="indicator">3</div>
+                </span>
+            </button>
+
+            <div id="dropDownNotifications">
+                <ul>
+                    <li>
+                        <div class="message">
+                            <img src="/static/user.png" alt="NoPhotoFound"/>
+                            <span>Ivan</span>
+                            <textarea>Some message from Ivan</textarea>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="message">
+                            <img src="/static/user.png" alt="NoPhotoFound"/>
+                            <span>Pavlo</span>
+                            <textarea>Some message from Pavlo</textarea>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="message">
+                            <img src="/static/user.png" alt="NoPhotoFound"/>
+                            <span>Nika</span>
+                            <textarea>Some message from Nika</textarea>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <img class="menuItem" src="/static/user.png" alt="NoPhotoFound" id="userPhoto">
+            <span class="menuItem" id="userName">Ivan</span>
+
+
+            <div id="dropDown">
+                <ul>
+                    <li>
+                        <button>Profile</button>
+                    </li>
+                    <li>
+                        <button>Log out</button>
+                    </li>
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+</nav>
+<div id="dialogContainer" class="dialog"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2" id="navigationList">
+            <ul>
+                <li>
+                    <button onclick="dashboard()">Dashboard</button>
+                </li>
+                <li>
+                    <button onclick="students()">Students</button>
+                </li>
+                <li>
+                    <button onclick="tasks()">Tasks</button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-10" id="toChange">
+
+        </div>
+
+    </div>
+    
+</div>
+
+
+<script src="../scripts/dialogScripts.js"></script>
+<script src="../scripts/navigationList.js"></script>
+<script src="../scripts/tableScripts.js"></script>
+<script src="../scripts/navMenuHoversEvents.js"></script>
+<script src="../scripts/lab3.js"></script>
+<script src="../scripts/caching/connection.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+html {
+    margin: 0;
+
+}
+body{
+    background-color: #c7c7c7;
+}
+
+.glyphButton {
+    background-color: inherit;
+    color: grey;
+    border: 1px solid grey;
+    margin-left: 2px;
+}
+
+.onlineCheckBox:disabled {
+    opacity: 1;
+    cursor: default;
+    pointer-events: auto;
+    color: #54e34c;
+}

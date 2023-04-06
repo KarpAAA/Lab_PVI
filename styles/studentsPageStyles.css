@@ -1,0 +1,14 @@
+#studentsTable {
+    width: 100%;
+    background-color: white;
+    color: black;
+
+}
+
+#addStudent {
+    float: right;
+}
+
+#studentsDiv {
+    padding-top: 20px;
+}
