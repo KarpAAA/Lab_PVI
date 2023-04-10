@@ -12,19 +12,21 @@ function deleteStudent1(id) {
     });
 
 }
-function addStudent1(student) {
+function addStudent1(student, callback) {
+    let id = -1;
     $.ajax({
         url: "/server/addStudent.php",
         type: "POST",
         data: JSON.stringify(student),
         contentType: "application/json",
         success: function (response) {
-            console.log("Студент був успішно доданий до бази даних!");
+            callback(response);
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.error("Сталася помилка під час додавання студента до бази даних: " + textStatus, errorThrown);
         }
     });
+    return id;
 }
 function editStudent1(student){
     $.ajax({

@@ -1,11 +1,14 @@
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/Lab_PVI/scripts/caching/sw.js')
-            .then(registration => {
-                console.log('Service Worker registered: ', registration);
+$(document).ready(function() {
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('../scripts/caching/serviceWorker.js')
+            .then(function(registration) {
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+
             })
-            .catch(registrationError => {
-                console.log('Service Worker registration failed: ', registrationError);
+            .catch(function(error) {
+                console.log('ServiceWorker registration failed: ', error);
             });
-    });
-}
+    } else {
+        console.log('Service workers are not supported.');
+    }
+});

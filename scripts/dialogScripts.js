@@ -1,5 +1,5 @@
 function openNewStudentDialog() {
-    $("#dialogContainer").load("/additionalContent/dialog/newStudentDialog.html", function () {
+    $("#dialogContainer").load("../additionalContent/dialog/newStudentDialog.html", function () {
         $("#addStudentForm").submit(function (event) {
             event.preventDefault();
 
@@ -22,7 +22,7 @@ function openDeleteStudentDialog(button) {
     const id = $(`#studentsTable tr`).eq(button.parentNode.parentNode.rowIndex)
         .find('td').eq(1).attr("id");
     console.log(button.parentNode.parentNode.rowIndex);
-    $("#dialogContainer").load("/additionalContent/dialog/deleteStudentDialog.html", function () {
+    $("#dialogContainer").load("../additionalContent/dialog/deleteStudentDialog.html", function () {
 
         $("#deleteStudentButton").on("click", function () {
             deleteStudent(id);
@@ -42,7 +42,7 @@ function openEditStudentDialog(button) {
     if (columns.item(4).innerHTML === "Male") ifMan = true;
     if (columns.item(4).innerHTML === "Female") ifWoman = true;
 
-    $("#dialogContainer").load("/additionalContent/dialog/newStudentDialog.html", function () {
+    $("#dialogContainer").load("../additionalContent/dialog/newStudentDialog.html", function () {
 
         $(document).ready(function () {
             $('#addStudentForm input').each(function() {

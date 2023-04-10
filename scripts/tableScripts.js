@@ -10,15 +10,13 @@ class Student {
 }
 let index = 0;
 
-
-function addStudent(student) {
-    index++;
-
-    $("#studentsTable").append("<tr id='newTr'></tr>");
-    $("#studentsTable #newTr").load("/additionalContent/newStudent.html", function (){
+function showStudent(student){
+    let index = student.id;
+    $("#studentsTable").append(`<tr id="row-${index}"></tr>`);
+    $(`#studentsTable #row-${index}`).load("../additionalContent/newStudent.html", function (){
 
         $(`#studentsTable #row-${index} #id`).attr({
-            "id": `${index}`
+            "id": index
         }).text(index);
 
         $(`#studentsTable #row-${index} #group`).attr({
@@ -62,8 +60,61 @@ function addStudent(student) {
             "id" : `row-${index}`
         }
     );
-    addStudent1(student)
-    closeDialog();
+}
+function addStudent(student) {
+    addStudent1(student,function(id) {
+        let index = id;
+        $("#studentsTable").append("<tr id='newTr'></tr>");
+        $("#studentsTable #newTr").load("../additionalContent/newStudent.html", function (){
+
+            $(`#studentsTable #row-${index} #id`).attr({
+                "id": index
+            }).text(index);
+
+            $(`#studentsTable #row-${index} #group`).attr({
+                "id": `group-${index}`
+            }).text(student.sGroup);
+
+            $(`#studentsTable #row-${index} #name`).attr(
+                {
+                    "id" : `name-${index}`
+                }
+            ).text(student.name);
+
+            $(`#studentsTable #row-${index} #gender`).attr(
+                {
+                    "id" : `gender-${index}`
+                }
+            ).text(student.gender);
+
+            $(`#studentsTable #row-${index} #birthday`).attr(
+                {
+                    "id" : `birthday-${index}`
+                }
+            ).text(student.birthday);
+
+            $(`#studentsTable #row-${index} #online`).attr(
+                {
+                    "id" : `online-${index}`
+                }
+            )
+
+            if(student.status === true){
+                $(`#studentsTable #row-${index} #online-${index} input`).attr(
+                    {
+                        "checked" : "checked"
+                    }
+                )
+            }
+
+        }).attr(
+            {
+                "id" : `row-${index}`
+            }
+        );
+        closeDialog();
+    });
+
 }
 function editStudent(student) {
     let id = student.id;

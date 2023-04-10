@@ -1,33 +1,35 @@
 <?php
 
-$servername = 'localhost';
-$username = 'root';
-$password = 'root';
-$dbname = 'pviDatabase';
+$servername = "localhost";
+$username = "root";
+$password = "root";
+$dbname = "pviDatabase";
 
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $json = file_get_contents('php://input');
+    $student = json_decode($json);
 
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    try {
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+        $stmt = $conn->prepare("INSERT INTO Student VALUES (null, :name, :group, :gender, :birthday, 0)");
+        $stmt->bindParam(":name", $name);
+        $stmt->bindParam(":group", $sGroup);
+        $stmt->bindParam(":gender", $gender);
+        $stmt->bindParam(":birthday", $birthday);
 
-    $stmt = $conn->prepare("INSERT INTO Student VALUES (null, :name, :group, :gender, :birthday,0)");
-    $stmt->bindParam(':name', $name);
-    $stmt->bindParam(':group', $group);
-    $stmt->bindParam(':gender', $gender);
-    $stmt->bindParam(':birthday', $birthday);
+        $name = $student->name;
+        $sGroup = $student->sGroup;
+        $gender = $student->gender;
+        $birthday = $student->birthday;
 
-    $name = $_POST["name"];
-    $group = $_POST["group"];
-    $gender = $_POST["gender"];
-    $birthday = $_POST["birthday"];
-    $stmt->execute();
+        $stmt->execute();
 
-} catch (PDOException $e) {
-    echo  $e->getMessage();
+        echo $conn->lastInsertId();
+        $conn = null;
+
+    } catch (PDOException $e) {
+        echo "Помилка";
+    }
 }
-
-$conn = null;
-
-header("Location: http://localhost:63342/Lab_PVI/content/home1.php?_ijt=umr2klenj0a0iub63jokci0mpc&_ij_reload=RELOAD_ON_SAVE");
-exit();

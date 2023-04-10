@@ -4,7 +4,7 @@ function tasks(){
 }
 
 function students(){
-    $("#toChange").load("/additionalContent/studentsTable.html");
+    $("#toChange").load("../additionalContent/studentsTable.html");
 }
 
 function dashboard() {
