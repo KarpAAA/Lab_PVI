@@ -1,6 +1,6 @@
-function deleteStudent1(id) {
+function deleteStudentFromDb(id) {
     $.ajax({
-        url: "/server/deleteStudent.php",
+        url: "../server/deleteStudent.php",
         type: "POST",
         data: {id: id},
         success: function (){
@@ -12,10 +12,9 @@ function deleteStudent1(id) {
     });
 
 }
-function addStudent1(student, callback) {
-    let id = -1;
+function addStudentToDb(student, callback) {
     $.ajax({
-        url: "/server/addStudent.php",
+        url: "../server/addStudent.php",
         type: "POST",
         data: JSON.stringify(student),
         contentType: "application/json",
@@ -26,11 +25,10 @@ function addStudent1(student, callback) {
             console.error("Сталася помилка під час додавання студента до бази даних: " + textStatus, errorThrown);
         }
     });
-    return id;
 }
-function editStudent1(student){
+function editStudentInDb(student){
     $.ajax({
-        url: "/server/editStudent.php",
+        url: "../server/editStudent.php",
         type: "POST",
         data: JSON.stringify(student),
         contentType: "application/json",
@@ -41,40 +39,4 @@ function editStudent1(student){
             console.error("Сталася помилка під час додавання студента до бази даних: " + textStatus, errorThrown);
         }
     });
-}
-function studentsList(){
-    const xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("toChange").innerHTML =
-                "<div class=\"row\">\n" +
-                "    <div class=\"col-11\" id=\"studentsDiv\">\n" +
-                "        <h1>Students:</h1>\n" +
-                "        <button onclick=\"openNewStudentDialog()\" class=\"glyphButton\" id=\"addStudent\">\n" +
-                "            <span class=\"glyphicon glyphicon-plus\"></span>\n" +
-                "        </button>\n" +
-                "\n" +
-                "        <table id=\"studentsTable\" class=\"table table-bordered table-hover\">\n" +
-                "            <thead>\n" +
-                "            <tr>\n" +
-                "                <th>Checked</th>\n" +
-                "                <th>Group</th>\n" +
-                "                <th>Name</th>\n" +
-                "                <th>Gender</th>\n" +
-                "                <th>Birthday</th>\n" +
-                "                <th>Status</th>\n" +
-                "                <th>Options</th>\n" +
-                "            </tr>\n" +
-                "            </thead>\n" +
-                    this.responseText +
-                "        </table>\n" +
-                "    </div>\n" +
-                "    <div class=\"col-1\" ></div>\n" +
-                "</div>";
-
-        }
-    };
-
-    xhttp.open("GET", "../server/studentsTable.php");
-    xhttp.send();
 }

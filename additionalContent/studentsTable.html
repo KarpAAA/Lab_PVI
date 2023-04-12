@@ -24,31 +24,13 @@
     $(document).ready(function() {
 
         $.ajax({
-            url: "/server/getStudents.php",
+            url: "../server/getStudents.php",
             type: "GET",
             dataType: "json",
             success: function(response) {
                 $.each(response, function(i, student) {
                     showStudent(student);
                 });
-                // $.each(response, function(i, student) {
-                //     var row = $("<tr>");
-                //     row.append($("<td><input type='checkbox'></td>"));
-                //     row.append($("<td>" + student.group + "</td>"));
-                //     row.append($("<td>" + student.name + "</td>"));
-                //     row.append($("<td>" + student.gender + "</td>"));
-                //     row.append($("<td>" + student.birthday + "</td>"));
-                //     row.append($("<td>" + student.status + "</td>"));
-                //     row.append($("<td>" +
-                //         "<button onclick='editStudent(" + student.id + ")' class='glyphButton'>" +
-                //         "<span class='glyphicon glyphicon-pencil'></span>" +
-                //         "</button> " +
-                //         "<button onclick='deleteStudent(" + student.id + ")' class='glyphButton'>" +
-                //         "<span class='glyphicon glyphicon-trash'></span>" +
-                //         "</button>" +
-                //         "</td>"));
-                //     $("#studentsTable").append(row);
-                // });
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 console.error("Сталася помилка під час отримання списку студентів: " + textStatus, errorThrown);

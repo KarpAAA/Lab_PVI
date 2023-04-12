@@ -8,7 +8,6 @@ class Student {
         this.gender = gender;
     }
 }
-let index = 0;
 
 function showStudent(student){
     let index = student.id;
@@ -21,7 +20,7 @@ function showStudent(student){
 
         $(`#studentsTable #row-${index} #group`).attr({
             "id": `group-${index}`
-        }).text(student.sGroup);
+        }).text(student.group);
 
         $(`#studentsTable #row-${index} #name`).attr(
             {
@@ -62,7 +61,8 @@ function showStudent(student){
     );
 }
 function addStudent(student) {
-    addStudent1(student,function(id) {
+    addStudentToDb(student,function(id) {
+
         let index = id;
         $("#studentsTable").append("<tr id='newTr'></tr>");
         $("#studentsTable #newTr").load("../additionalContent/newStudent.html", function (){
@@ -126,13 +126,13 @@ function editStudent(student) {
         $(`#gender-${id}`).text(student.gender);
     })
 
-    editStudent1(student)
+    editStudentInDb(student)
     closeDialog();
 }
 function deleteStudent(studentId) {
     $(`#studentsTable #row-${studentId}`).remove();
     closeDialog();
-    deleteStudent1(studentId);
+    deleteStudentFromDb(studentId);
 }
 function checkState(){
     if(document.getElementById("mainCheckbox").checked){
