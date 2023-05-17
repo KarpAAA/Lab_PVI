@@ -8,17 +8,17 @@ try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $stmt = $conn->prepare("SELECT * FROM Student");
+    $stmt = $conn->prepare("SELECT * FROM student;");
     $stmt->execute();
 
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-//    echo json_encode($result);
+    echo json_encode($result);
 
     $conn = null;
 
 } catch (PDOException $e) {
-    echo "Error: " . $e->getMessage();
+    echo $e->getMessage();
 }
 
 

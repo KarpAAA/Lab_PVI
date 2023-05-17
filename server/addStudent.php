@@ -1,6 +1,5 @@
 <?php
-//var_dump($_SERVER);
-//die();
+
 $servername = "localhost";
 $username = "root";
 $password = "root";

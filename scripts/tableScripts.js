@@ -12,7 +12,7 @@ class Student {
 function showStudent(student){
     let index = student.id;
     $("#studentsTable").append(`<tr id="row-${index}"></tr>`);
-    $(`#studentsTable #row-${index}`).load("../additionalContent/newStudent.html", function (){
+    $(`#studentsTable #row-${index}`).load("./additionalContent/newStudent.html", function (){
 
         $(`#studentsTable #row-${index} #id`).attr({
             "id": index
@@ -65,7 +65,7 @@ function addStudent(student) {
 
         let index = id;
         $("#studentsTable").append("<tr id='newTr'></tr>");
-        $("#studentsTable #newTr").load("../additionalContent/newStudent.html", function (){
+        $("#studentsTable #newTr").load("./additionalContent/newStudent.html", function (){
 
             $(`#studentsTable #row-${index} #id`).attr({
                 "id": index

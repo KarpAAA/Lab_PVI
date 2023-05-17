@@ -1,6 +1,6 @@
 function deleteStudentFromDb(id) {
     $.ajax({
-        url: "../server/deleteStudent.php",
+        url: "./server/deleteStudent.php",
         type: "POST",
         data: {id: id},
         success: function (){
@@ -14,7 +14,7 @@ function deleteStudentFromDb(id) {
 }
 function addStudentToDb(student, callback) {
     $.ajax({
-        url: "../server/addStudent.php",
+        url: "./server/addStudent.php",
         type: "POST",
         data: JSON.stringify(student),
         contentType: "application/json",
@@ -28,7 +28,7 @@ function addStudentToDb(student, callback) {
 }
 function editStudentInDb(student){
     $.ajax({
-        url: "../server/editStudent.php",
+        url: "./server/editStudent.php",
         type: "POST",
         data: JSON.stringify(student),
         contentType: "application/json",

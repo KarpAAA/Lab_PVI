@@ -24,10 +24,11 @@
     $(document).ready(function() {
 
         $.ajax({
-            url: "../server/getStudents.php",
+            url: "./server/getStudents.php",
             type: "GET",
             dataType: "json",
             success: function(response) {
+
                 $.each(response, function(i, student) {
                     showStudent(student);
                 });
